@@ -9,14 +9,14 @@ module.exports = {
     },
 
     postProductsTable: (req, res,next) => {
-        const db = req.app.get('db');
-        const { name, price, img } = req.body;
-        db.create_product({name, price, img})
-        db.get_inventory().then(result => {
+        const dbinstance = req.app.get('db');
+        const { name, price, url } = req.body;
+        dbinstance.create_product([name, price, url])
+        dbinstance.get_inventory().then(result => {
             res.send(result)
         });
         console.log(name);
         console.log(price);
-        console.log(img);
-    }
+        console.log(url);
+    },
 }

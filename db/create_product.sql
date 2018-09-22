@@ -1,5 +1,5 @@
-insert into products_table 
+INSERT INTO products_table 
 (name,price,img)
 values
-    ("bob", $1, "img"
+    ($1, $2, $3
 );

@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Form from './components/Form/Form';
 import axios from "axios";
 
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -12,24 +13,23 @@ class App extends Component {
       inventory: []
     }
   }
-componentDidMount(){
-  axios.get("/api/inventory")
-    .then((res)=>{
-      this.setState({
-       inventory:res.data 
-      })
+  componentDidMount() {
+    axios.get("/api/inventory")
+      .then((res) => {
+        this.setState({
+          inventory: res.data
+        })
 
-    }
-
-    )
-}
+      }
+      )
+  }
 
 
   render() {
     return (
       <div>
-        <header >
-          <Header />
+        <header className="Header" >
+          <Header  />
         </header>
         <Dashboard inventory={this.state.inventory} />
         <Form />
